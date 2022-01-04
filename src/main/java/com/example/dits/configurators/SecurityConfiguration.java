@@ -32,9 +32,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         passwordEncoder = new BCryptPasswordEncoder();
     }
 
-
-    @Autowired
-    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws  Exception{
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws  Exception{
         auth.jdbcAuthentication().dataSource(dataSource)
                 .passwordEncoder(passwordEncoder)
                 .usersByUsernameQuery("select login, password, 'true' from user" +
@@ -62,7 +61,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").hasRole("ADMIN")
                 .and().formLogin().loginPage("/login")
                 .successHandler(customSuccessHandler)
-                .usernameParameter("ssoId").passwordParameter("password").failureUrl("/user")
+                .usernameParameter("login").passwordParameter("password").failureUrl("/login?error=1")
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/accessDenied");
     }

@@ -44,14 +44,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "users_role.roleId = role.roleId where login =?");
     }
 
+//    @Autowired
+//    public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception{
+//        auth.inMemoryAuthentication()
+//                .passwordEncoder(passwordEncoder)
+//                .withUser("user").password(passwordEncoder.encode("user"))
+//                .roles("USER")
+//                .and()
+//                .withUser("admin")
+//                .password(passwordEncoder.encode("admin")).roles("ADMIN");
+//    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/","/home").access("hasRole('ROLE_USER')")
-                .antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/","/home","/user").hasRole("USER")
+                .antMatchers("/admin").hasRole("ADMIN")
                 .and().formLogin().loginPage("/login")
                 .successHandler(customSuccessHandler)
-                .usernameParameter("ssoId").passwordParameter("password")
+                .usernameParameter("ssoId").passwordParameter("password").failureUrl("/user")
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/accessDenied");
     }

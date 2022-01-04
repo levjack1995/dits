@@ -32,17 +32,17 @@
           </div>
 
           <div class="col-6 log-cont">
-            <form class="log-form" th:action="@{/login}" method="post">
+            <form name='f' th:action="@{/security_check}" method='POST'>
               <div class="sign-in">Sign in</div>
               <div class="mb-3">
                 <label for="loginHelp" class="form-label login-margin">Login</label>
-                <input type="text" class="form-control form-input login-margin input-area" id = "login-input">
+                <input type="text" name='username' class="form-control form-input login-margin input-area" id = "login-input">
                 <div id="loginHelp" class="form-text login-margin text-danger">*Login is too short</div>
               </div>
               <div class="mb-3">
                 <label for="password-input" class="form-label login-margin pass-text">Password</label>
                 
-                <input type="password" class="form-control form-input login-margin input-area" id="password-input">
+                <input type="password" name='password' class="form-control form-input login-margin input-area" id="password-input">
                 <i class="far fa-eye" id="togglePassword"></i>
                 <div id = "passHelp" class="form-text login-margin warning-pass text-danger" th:if="${param.error!= null}">*Password is wrong</div>
               </div>

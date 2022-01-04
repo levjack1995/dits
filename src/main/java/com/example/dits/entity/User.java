@@ -42,4 +42,13 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<Statistic> statistics;
+
+    @Override
+    public String toString() {
+        return "firstName: '"
+                + this.firstName + "', lastName: '"
+                + this.lastName + "', login: '"
+                + this.login + "', password: '"
+                + this.password + "'";
+    }
 }

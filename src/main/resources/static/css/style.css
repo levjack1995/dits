@@ -116,3 +116,23 @@ body {
 .pass-text{
   margin-top: 15px;
 }
+
+.assessment-ref, .assessment-ref:hover{
+color: #17AC19;
+  font-family: Roboto;
+  font-size: 24px;
+  line-height: 36px;
+  text-decoration: none;
+}
+
+.statistics-ref{
+  color: #FAFAFA;
+  font-family: Roboto;
+  font-size: 24px;
+  line-height: 36px;
+  text-decoration: none;
+}
+
+.statistics-ref:hover{
+  color: #17AC19;
+}

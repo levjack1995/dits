@@ -26,7 +26,7 @@ public class SecurityController {
     @GetMapping("/user")
     public String userPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "user";
+        return "user/user";
     }
 
     @GetMapping("/login")

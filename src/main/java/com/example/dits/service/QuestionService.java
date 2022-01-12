@@ -11,4 +11,5 @@ public interface QuestionService {
     public void delete(Question q);
     public void save(Question q);
     public List<Question> findAll();
+    List<Question> getQuestionsByTestName(String name);
 }

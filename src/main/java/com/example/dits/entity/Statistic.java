@@ -34,4 +34,11 @@ public class Statistic {
     @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name ="userId")
     private User user;
+
+    public Statistic(Date date, boolean correct, Question question, User user) {
+        this.date = date;
+        this.correct = correct;
+        this.question = question;
+        this.user = user;
+    }
 }

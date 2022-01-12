@@ -26,7 +26,6 @@ public class Topic {
         this.name = name;
     }
 
-
     @Column(length = 100)
     private String description;
 
@@ -38,6 +37,5 @@ public class Topic {
     orphanRemoval = true)
     @ToString.Exclude
     private List<Test> testList;
-
 
 }

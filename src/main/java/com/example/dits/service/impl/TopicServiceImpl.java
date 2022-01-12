@@ -46,4 +46,9 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> findAll() {
         return repository.findAll();
     }
+
+    @Transactional
+    public Topic getTopicByName(String name) {
+        return repository.getTopicByName(name);
+    }
 }

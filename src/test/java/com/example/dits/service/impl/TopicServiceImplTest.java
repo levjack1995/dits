@@ -69,4 +69,12 @@ class TopicServiceImplTest {
         verifyNoMoreInteractions(repository);
     }
 
+    @Test
+    void shouldInvokeGetTopicByName(){
+        String anyString = anyString();
+        service.getTopicByName(anyString);
+        verify(repository,times(1)).getTopicByName(anyString);
+        verifyNoMoreInteractions(repository);
+    }
+
 }

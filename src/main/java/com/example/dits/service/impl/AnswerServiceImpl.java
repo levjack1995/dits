@@ -2,6 +2,7 @@ package com.example.dits.service.impl;
 
 import com.example.dits.DAO.AnswerRepository;
 import com.example.dits.entity.Answer;
+import com.example.dits.entity.Question;
 import com.example.dits.service.AnswerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,10 @@ public class AnswerServiceImpl implements AnswerService {
     @Transactional
     public List<Answer> findAll() {
         return repo.findAll();
+    }
+
+    @Transactional
+    public List<Answer> getAnswersByQuestion(Question question){
+        return repo.getAnswersByQuestion(question);
     }
 }

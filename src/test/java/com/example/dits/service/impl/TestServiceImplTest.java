@@ -3,6 +3,7 @@ package com.example.dits.service.impl;
 import com.example.dits.DAO.StatisticRepository;
 import com.example.dits.DAO.TestRepository;
 import com.example.dits.entity.Statistic;
+import com.example.dits.entity.Topic;
 import com.example.dits.service.StatisticService;
 import com.example.dits.service.TestService;
 import org.junit.jupiter.api.BeforeEach;
@@ -61,6 +62,14 @@ class TestServiceImplTest {
     void shouldInvokeFindAllOnRepository(){
         service.findAll();
         verify(repository,times(1)).findAll();
+        verifyNoMoreInteractions(repository);
+    }
+
+    @Test
+    void shouldInvokeGetTestsByTopic(){
+        Topic anyTopic = any(Topic.class);
+        service.getTestsByTopic(anyTopic);
+        verify(repository,times(1)).getTestsByTopic(anyTopic);
         verifyNoMoreInteractions(repository);
     }
 }

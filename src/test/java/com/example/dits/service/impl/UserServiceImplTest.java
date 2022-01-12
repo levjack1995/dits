@@ -64,4 +64,12 @@ class UserServiceImplTest {
         verify(repository,times(1)).findAll();
         verifyNoMoreInteractions(repository);
     }
+
+    @Test
+    void shouldInvokeGetUserByLoginInRepository(){
+        String anyString = anyString();
+       service.getUserByLogin(anyString);
+       verify(repository,times(1)).getUserByLogin(anyString);
+       verifyNoMoreInteractions(repository);
+    }
 }

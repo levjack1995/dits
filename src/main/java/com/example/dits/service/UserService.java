@@ -7,9 +7,10 @@ import com.example.dits.entity.User;
 import java.util.List;
 
 public interface UserService {
-    public void create(User user);
-    public void update(User user, int id);
-    public void delete(User user);
-    public void save(User user);
-    public List<User> findAll();
+    void create(User user);
+    void update(User user, int id);
+    void delete(User user);
+    void save(User user);
+    List<User> findAll();
+    User getUserByLogin(String login);
 }

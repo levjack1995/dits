@@ -1,5 +1,10 @@
 package com.example.dits.controllers;
 
+import com.example.dits.entity.User;
+import com.example.dits.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,9 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
+@RequiredArgsConstructor
 public class SecurityController {
+
+    private final UserService userService;
+
 
     @GetMapping("/admin")
     public String adminPage(ModelMap model){
@@ -24,8 +34,9 @@ public class SecurityController {
 
 
     @GetMapping("/user")
-    public String userPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
+    public String userPage(HttpSession session) {
+        User user = userService.getUserByLogin(getPrincipal());
+        session.setAttribute("user", user);
         return "user/user";
     }
 
@@ -61,7 +72,7 @@ public class SecurityController {
     }
 
 
-    static String getPrincipal(){
+    private static String getPrincipal(){
         String userName = null;
         Object principal = SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal();

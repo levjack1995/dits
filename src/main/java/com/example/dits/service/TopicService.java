@@ -13,4 +13,5 @@ public interface TopicService {
     public void delete(Topic topic);
     public void save(Topic topic);
     public List<Topic> findAll();
+    Topic getTopicByName(String name);
 }

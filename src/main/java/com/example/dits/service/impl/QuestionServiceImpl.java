@@ -19,6 +19,11 @@ public class QuestionServiceImpl implements QuestionService {
     private final QuestionRepository repo;
 
     @Transactional
+    public List<Question> getQuestionsByTestName(String name){
+        return repo.getQuestionsByTestName(name);
+    }
+
+    @Transactional
     public void create(Question question) {
         repo.save(question);
     }

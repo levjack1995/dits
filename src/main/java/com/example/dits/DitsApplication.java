@@ -11,6 +11,7 @@ public class DitsApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(DitsApplication.class, args);
+
     }
 
 }

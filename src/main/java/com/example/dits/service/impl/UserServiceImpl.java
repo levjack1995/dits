@@ -48,4 +48,9 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return repository.findAll();
     }
+
+    @Transactional
+    public User getUserByLogin(String login){
+        return repository.getUserByLogin(login);
+    }
 }

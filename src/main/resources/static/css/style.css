@@ -486,3 +486,45 @@ orange-circle{
   width: 55%;
   margin: auto;
 }
+
+.cont-for-statistic{
+  position: absolute;
+  left: 29.53%;
+  right: 33.65%;
+  top: 12.76%;
+  bottom: 36.99%;
+
+  background: #FFFFFF;
+  /* 1 */
+
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.personal-statistic{
+
+  /* h3 */
+  color: #008F02;
+  font-family: 'Roboto',sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height, or 150% */
+  vertical-align: center;
+  text-align: center;
+}
+
+.rectangle-under-personal-statistic{
+
+  height: 2px;
+  background:  #008F02;
+  border-radius: 10px;
+  width: 80%;
+  margin:auto;
+}
+
+.cont-for-your-personal-statistic{
+  height: 75px;
+  background: #F2F2F2;
+}

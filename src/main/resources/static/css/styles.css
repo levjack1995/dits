@@ -1,0 +1,16 @@
+button,
+button:active,
+button:focus {
+    outline: none;
+}
+
+.top-content{
+    display: block;
+    background: #012438;
+    position: relative;
+}
+
+.bar-cont{
+    padding: 25px;
+    display: flex;
+}

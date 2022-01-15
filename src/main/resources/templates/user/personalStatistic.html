@@ -34,20 +34,16 @@
 </header>
 <main>
     <div class="cont-for-statistic">
+        <div class="cont-for-your-personal-statistic"> <div class="personal-statistic">Your personal statistic</div></div>
 
-    </div>
-    <div th:each="statistic : ${statisticList}" class="d-flex">
-        <div th:text="${statistic.testName}">test Name </div>
-        <div th:text="${statistic.count}">Statistic count </div>
-        <div th:text="${statistic.avgProc}">avg Proc</div>
-    </div>
+        <div class="rectangle-under-personal-statistic"></div>
+        <div th:each="statistic : ${statisticList}" class="d-flex">
+            <div th:text="${statistic.testName}">test Name </div>
+            <div th:text="${statistic.count}">Statistic count </div>
+            <div th:text="${statistic.avgProc}">avg Proc</div>
+        </div>
     </div>
 
-</div>
-
-
-    </div></div>
-    </div>
 </main>
 <footer class="dev-copyrate black mt-35vh h3 copyrate-in-result-page">© Dev Incubator</footer>
 

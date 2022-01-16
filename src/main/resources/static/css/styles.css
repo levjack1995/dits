@@ -21,7 +21,7 @@ button:focus {
 .bar{
     padding: 25px 0;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 2.5fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1.7fr;
 }
 
 @media (max-width: 1200px) {
@@ -36,7 +36,7 @@ button:focus {
     font-size: 24px;
     line-height: 36px;
     text-decoration: none;
-    text-align: start;
+    text-align: center;
     align-self: center;
 
 }
@@ -55,7 +55,7 @@ button:focus {
     font-size: 24px;
     line-height: 36px;
     text-decoration: none;
-    text-align: start;
+    text-align: end;
     align-self: center;
 }
 .bar__door{
@@ -67,7 +67,6 @@ button:focus {
     line-height: 54px;
     margin: 30px 0;
 }
-
 
 
 

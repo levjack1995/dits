@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="min-width-780">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
     <link href="../../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="../../static/css/styles.css" th:href="@{css/styles.css}" />
@@ -13,19 +13,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Dev-inc</title>
 </head>
-<header><div class="top-content"><div class="container">
+<header><div class="header-content"><div class="container">
     <div class="row">
-        <div class="col"><div class="bar-cont"><a href="#" th:href="@{/user}"><img src="../../static/img/icon.png" th:src="@{img/icon.png}" alt="dev-incubator-icon"/></a>
-            <a href="#" th:href="@{/user}" class="assessment-ref">User</a>
-            <a href="#" class="statistics-ref">Tests</a>
-            <a href="#" class="statistics-ref">Statistic</a>
-            <span>Student <span>&bull; </span></span><span th:text="${session.user.getFirstName} + ' '+ ${session.user.getLastName} ">Ivan Ivanov</span>
-            <a href="/logout"><img src="../../static/img/exit.png" th:src="@{/img/exit.png}"  class="door"></a></div></div>
+        <div class="col"><div class="bar"><a href="#" th:href="@{/user}">
+            <img src="../../static/img/icon.png" th:src="@{img/icon.png}" alt="dev-incubator-icon"
+            class=""/></a>
+            <a href="#" th:href="@{/user}" class="bar__text bar__text--active">User</a>
+            <a href="#" class="bar__text">Tests</a>
+            <a href="#" class="bar__text">Statistic</a>
+            <span th:text="Student &bull; ${session.user.getFirstName} + ' '+ ${session.user.getLastName} " class="bar__user">Admin &bull; Maksim Salivanov
+            <a href="/logout"><img src="../../static/img/exit.png" th:src="@{/img/exit.png}" class="bar__door"></a></span>
+            </div></div>
     </div>
 </div></div>
 </header>
 <body>
-<p>ADMIN ADMIN</p>
+<section class="container">
+    <div class="row">
+        <div class="col"><h1 class="users-list-text">Users list</h1></div>
+    </div></section>
 </body>
 <script src = "js/main.js"></script>
 </html>

@@ -31,7 +31,7 @@ class AnswerServiceImplTest {
     @Test
     void shouldInvokeMethodSaveFromRepository() {;
         service.save(answer);
-        verify(repository, times(1)).save(answer);
+        verify(repository).save(answer);
         verifyNoMoreInteractions(repository);
     }
 

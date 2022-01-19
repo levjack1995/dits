@@ -1,4 +1,5 @@
 pipeline {
+node {
   agent any
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
@@ -40,5 +41,6 @@ pipeline {
     always {
       sh 'docker logout'
     }
+  }
   }
 }

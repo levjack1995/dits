@@ -39,7 +39,7 @@
         <div class="rectangle-under-personal-statistic"></div>
         <div th:each="statistic : ${statisticList}" class="d-flex">
             <div th:text="${statistic.testName}">test Name </div>
-            <div th:text="${statistic.count}">Statistic count </div>
+            <div th:text="${statistic.count} + 1">Statistic count </div>
             <div th:text="${statistic.avgProc}">avg Proc</div>
         </div>
     </div>

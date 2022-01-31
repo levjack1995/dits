@@ -3,8 +3,6 @@ package com.example.dits.controllers;
 import com.example.dits.entity.User;
 import com.example.dits.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -44,16 +42,16 @@ public class SecurityController {
     public String loginPage(){
         return "login";}
 
-    @PostMapping("/login")
-    public String afterLogin(){
-        return "user";}
+//    @PostMapping("/login")
+//    public String afterLogin(){
+//        return "user";}
 
 
-    @GetMapping("/error")
-    public String loginError(Model model) {
-        model.addAttribute("loginError", true);
-        return "login";
-    }
+//    @GetMapping("/error")
+//    public String loginError(Model model) {
+//        model.addAttribute("loginError", true);
+//        return "login";
+//    }
 
 
     @GetMapping("/accessDenied")
@@ -73,7 +71,7 @@ public class SecurityController {
 
 
     private static String getPrincipal(){
-        String userName = null;
+        String userName;
         Object principal = SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal();
 

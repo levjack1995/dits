@@ -32,13 +32,14 @@ public class UserHomeController {
         List<Test> tests = testService.getTestsByTopic(topic);
         session.setAttribute("tests", tests);
         if(tests.isEmpty()){
-            return new ArrayList<String>();
+            return new ArrayList<>();
         }
         else {
             List<String> testsName = tests.stream().map(Test::getName).collect(Collectors.toList());
             return testsName;
         }
     }
+
     @GetMapping("/getDescription")
     @ResponseBody
     public String description(@RequestParam(value = "test", required = false)String test, HttpSession session){

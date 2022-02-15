@@ -22,6 +22,10 @@ public class Question {
     @Column
     private String description;
 
+    public Question(String description) {
+        this.description = description;
+    }
+
     @Fetch(FetchMode.SUBSELECT)
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = CascadeType.ALL,
     orphanRemoval = true)
@@ -33,7 +37,12 @@ public class Question {
     private Test test;
 
     @Fetch(FetchMode.SUBSELECT)
-    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY,cascade = CascadeType.ALL,
+    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY,cascade = CascadeType.MERGE,
     orphanRemoval = true)
     private List<Statistic> statistics;
+
+    public Question(String description, Test test) {
+        this.description = description;
+        this.test = test;
+    }
 }

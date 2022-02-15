@@ -1,7 +1,6 @@
 package com.example.dits.service;
 
-import com.example.dits.entity.Answer;
-import com.example.dits.entity.Statistic;
+import com.example.dits.dto.TestInfoDTO;
 import com.example.dits.entity.Test;
 import com.example.dits.entity.Topic;
 
@@ -14,4 +13,10 @@ public interface TestService {
      void save(Test test);
      List<Test> findAll();
      List<Test> getTestsByTopic(Topic topic);
+     List<Test> getTestsByTopicName(String name);
+     List<Test> getTestsByTopic_TopicId(int ID);
+     List<TestInfoDTO> getTestInfoDTO (List<Test> tests);
+     Test getTestByTestId(int id);
+     void removeTestByTestId(int id);
+     void update(int id, String name, String description);
 }

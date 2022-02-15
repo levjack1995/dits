@@ -8,10 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,35 +21,24 @@ public class SecurityController {
     private final UserService userService;
 
 
-    @GetMapping("/admin")
-    public String adminPage(ModelMap model){
-        model.addAttribute("user",getPrincipal());
-        return "admin";
+    @GetMapping("/user-editor")
+    public String adminPage(HttpSession session){
+        session.setAttribute("user",userService.getUserByLogin(getPrincipal()));
+        session.setAttribute("users", userService.findAll());
+        return "admin/user-editor";
     }
 
 
-    @GetMapping("/user")
+    @GetMapping("/chooseTest")
     public String userPage(HttpSession session) {
         User user = userService.getUserByLogin(getPrincipal());
         session.setAttribute("user", user);
-        return "user/user";
+        return "user/chooseTest";
     }
 
     @GetMapping("/login")
     public String loginPage(){
         return "login";}
-
-//    @PostMapping("/login")
-//    public String afterLogin(){
-//        return "user";}
-
-
-//    @GetMapping("/error")
-//    public String loginError(Model model) {
-//        model.addAttribute("loginError", true);
-//        return "login";
-//    }
-
 
     @GetMapping("/accessDenied")
     public String accessDeniedGet(){
@@ -82,4 +68,5 @@ public class SecurityController {
             userName = principal.toString();
         return userName;
     }
+
 }

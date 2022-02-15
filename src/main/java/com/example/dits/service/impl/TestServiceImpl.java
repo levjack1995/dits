@@ -1,13 +1,11 @@
 package com.example.dits.service.impl;
 
 import com.example.dits.DAO.TestRepository;
-import com.example.dits.entity.Answer;
-import com.example.dits.entity.Statistic;
+import com.example.dits.dto.TestInfoDTO;
 import com.example.dits.entity.Test;
 import com.example.dits.entity.Topic;
 import com.example.dits.service.TestService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,5 +52,42 @@ public class TestServiceImpl implements TestService {
    public List<Test> getTestsByTopic(Topic topic) {
       return repository.getTestsByTopic(topic);
    }
+
+   @Transactional
+   @Override
+   public List<Test> getTestsByTopicName(String name) {
+      return repository.getTestsByTopicName(name);
+   }
+
+   @Override
+   public List<Test> getTestsByTopic_TopicId(int ID) {
+      return repository.getTestsByTopic_TopicId(ID);
+   }
+
+   @Override
+   public List<TestInfoDTO> getTestInfoDTO(List<Test> tests) {
+      return null;
+   }
+
+   @Transactional
+   @Override
+   public Test getTestByTestId(int id) {
+      return repository.getTestByTestId(id);
+   }
+
+   @Transactional
+   @Override
+   public void removeTestByTestId(int id) {
+      repository.removeTestByTestId(id);
+   }
+
+   @Transactional
+   @Override
+   public void update(int id, String name, String description) {
+      Test testByTestId = repository.getTestByTestId(id);
+      testByTestId.setName(name);
+      testByTestId.setDescription(description);
+   }
+
 
 }

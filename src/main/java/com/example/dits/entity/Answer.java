@@ -1,8 +1,6 @@
 package com.example.dits.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 
@@ -25,4 +23,15 @@ public class Answer {
     @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "questionId")
     private Question question;
+
+    public Answer(String description, boolean correct, Question question) {
+        this.description = description;
+        this.correct = correct;
+        this.question = question;
+    }
+
+    public Answer(String description, boolean correct) {
+        this.description = description;
+        this.correct = correct;
+    }
 }

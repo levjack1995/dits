@@ -1,7 +1,6 @@
 package com.example.dits.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -20,6 +19,10 @@ public class Topic {
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int topicId;
+
+    public Topic(String name) {
+        this.name = name;
+    }
 
     public Topic(String description, String name) {
         this.description = description;

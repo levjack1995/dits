@@ -30,16 +30,30 @@ public class User {
     private String password;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @Fetch(FetchMode.SUBSELECT)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinTable(name = "users_role"
     , joinColumns = @JoinColumn(name = "userId")
     , inverseJoinColumns = @JoinColumn(name = "roleId"))
     @ToString.Exclude
-    private List<Role> roles;
+    private Role role;
 
     @Fetch(FetchMode.SUBSELECT)
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<Statistic> statistics;
+
+    public User(String firstName, String lastName, String login, String password, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User(String firstName, String lastName, String login, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.role = role;
+    }
 }

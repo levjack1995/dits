@@ -1,15 +1,16 @@
 package com.example.dits.service;
 
-import com.example.dits.entity.Answer;
-import com.example.dits.entity.Question;
 import com.example.dits.entity.Role;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface RoleService {
-    public void create(Role r);
-    public void update(Role r, int id);
-    public void delete(Role r);
-    public void save(Role r);
-    public List<Role> findAll();
+    void create(Role r);
+    void update(Role r, int id);
+    void delete(Role r);
+    void save(Role r);
+    List<Role> findAll();
+    Role getRoleByRoleName(String roleName);
 }

@@ -7,6 +7,7 @@ import org.hibernate.annotations.FetchMode;
 import javax.persistence.*;
 import java.util.List;
 
+@Builder
 @Getter
 @Setter
 @RequiredArgsConstructor
@@ -14,6 +15,7 @@ import java.util.List;
 @ToString
 @Entity
 public class Test {
+
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

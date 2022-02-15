@@ -39,20 +39,30 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     }
 
     private String determineTargetUrl(Authentication authentication){
-        String url = "";
+        String url ;
         Collection<? extends GrantedAuthority> authorities =
                                                 authentication.getAuthorities();
         List<String> roles = new ArrayList<>();
-        for (GrantedAuthority authority : authorities){
-            roles.add(authority.getAuthority());
-        }
+        addAuthoritiesToRoles(authorities, roles);
+        url = determinateURL(roles);
+        return url;
+    }
+
+    private String determinateURL(List<String> roles) {
+        String url;
         if (isUser(roles))
-            url = "/user";
+            url = "/chooseTest";
         else if(isAdmin(roles))
-            url = "/admin";
+            url = "/user-editor";
         else
             url = "/accessDenied";
         return url;
+    }
+
+    private void addAuthoritiesToRoles(Collection<? extends GrantedAuthority> authorities, List<String> roles) {
+        for (GrantedAuthority authority : authorities){
+            roles.add(authority.getAuthority());
+        }
     }
 
     private boolean isUser(List<String> roles){

@@ -1,8 +1,6 @@
 package com.example.dits.entity;
 
 import lombok.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,6 +11,7 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @Entity
+@Builder
 public class Statistic {
 
     @Id
